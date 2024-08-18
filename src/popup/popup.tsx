@@ -1,3 +1,4 @@
+import './popup.css';
 import React, { useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 
@@ -7,8 +8,20 @@ const App = () => {
   }, []);
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <h1>FZ Download</h1>
+    <div className="container">
+      <h1>FZ Download📕</h1>
+      <a
+        href="https://github.com/do0dleman/fz_downloader"
+        className="link-button"
+      >
+        See Repo
+      </a>
+      <span>
+        <div className="deco-prop" />
+        <div className="deco-prop" />
+        <div className="deco-prop" />
+      </span>
+      <div className="bg-sun" />
     </div>
   );
 };
