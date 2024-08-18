@@ -1,5 +1,5 @@
 {
-  "name": "FromZero_Downloader",
+  "name": "fz_downloader",
   "version": "1.0.0",
   "description": "",
   "main": "background.js",
