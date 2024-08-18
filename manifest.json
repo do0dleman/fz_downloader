@@ -23,7 +23,7 @@
     {
       "js": ["dist/content.js"],
       "matches": ["*://*.fromzero.com/*"],
-      "css" : ["src/styles/main.css"]
+      "css" : ["public/styles/main.css"]
     }
   ],
 
