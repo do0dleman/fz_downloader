@@ -2,7 +2,7 @@
   "manifest_version": 3,
 
   "name": "FromZero_Downloader",
-  "description": "__MSG_extension_description__",
+  "description": "Extension adds a button for downloading word audio files on fromzero.com",
   "version": "1.0.0",
 
   "icons": {
