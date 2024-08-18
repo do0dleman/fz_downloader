@@ -48,6 +48,8 @@
   },
 
   "browser_specific_settings": {
-
+    "gecko": {
+      "id": "{f06501b1-1f26-4d39-a89d-d6a6a9604940}"
+    }
   }
 }
