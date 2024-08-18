@@ -1,0 +1,30 @@
+.downloadButton {
+  color: var(--off-white);
+  font-size: 0.6em;
+  aspect-ratio: 1/1;
+  align-self: center;
+  position: relative;
+  top: -2px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0.2em;
+  transform: rotate(90deg);
+}
+.downloadButton:hover {
+  color: var(--off-white);
+  text-decoration: none;
+}
+.downloadButton i {
+  background-color: var(--blue);
+  transition: all 0.3s ease;
+}
+.downloadButton i:hover {
+  background-color: color-mix(in hsl, var(--blue), #fff 10%);
+}
+.downloadButton i:active {
+  background-color: color-mix(in hsl, var(--blue), #fff 20%);
+}
+.downloadButton i::before {
+  content: '\f04b' !important;
+}

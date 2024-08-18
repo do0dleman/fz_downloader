@@ -1,0 +1,21 @@
+/* HTML: <div class="triangle"></div> */
+.triangle {
+  width: 0.5em;
+  aspect-ratio: 1 / cos(30deg);
+  --_g: calc(tan(60deg) * var(--r)) top var(--r), #000 98%, #0000 101%;
+  -webkit-mask: conic-gradient(
+        from 150deg at 50% calc(3 * var(--r) / 2 - 100%),
+        #000 60deg,
+        #0000 0
+      )
+      0 0/100% calc(100% - 3 * var(--r) / 2) no-repeat,
+    radial-gradient(
+      var(--r) at 50% calc(100% - 2 * var(--r)),
+      #000 98%,
+      #0000 101%
+    ),
+    radial-gradient(var(--r) at left var(--_g)),
+    radial-gradient(var(--r) at right var(--_g));
+  clip-path: polygon(50% 100%, 100% 0, 0 0);
+  background: linear-gradient(45deg, #ffffff, #ececec);
+}
