@@ -1,6 +1,6 @@
 .downloadButton {
   color: var(--off-white);
-  font-size: 0.62em;
+  font-size: 0.52em;
   width: 2em !important;
   height: 2em !important;
   align-self: center;
@@ -9,7 +9,10 @@
   justify-content: center;
   align-items: center;
   margin-left: 0.4em;
-  transform: rotate(90deg);
+  transform: translate(130%, -50%) rotate(90deg);
+  position: absolute;
+  right: 0;
+  top: 50%;
 }
 .downloadButton i {
   background-color: var(--blue);
@@ -32,5 +35,5 @@
 
 /* Changes container class to center downalod button */
 .css-11g2wvj {
-  display: flex;
+  position: relative;
 }
