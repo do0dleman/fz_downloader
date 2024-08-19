@@ -21,17 +21,19 @@ function getColorScheme() {
   return scheme;
 }
 
-let url = window.location.href;
-// @ts-ignore
-const urlParams = URL.parse(url).pathname.split('/')
 const t = async () => {
+  let fzUrl = window.location.href;
+  // @ts-ignore
+  const urlParams = URL.parse(fzUrl).pathname.split('/')
   if (urlParams[1] !== "courses" || urlParams.length === 4) {
     return
   }
   console.log('----------------[ FZ Downaloder Up and Running ]---------------------')
+
   const url = `https://www.fromzero.com/api/course/jfz2/lessons/${urlParams[3]}/sublessons/${urlParams[4]}`
   const resRaw = await axios.get(url)
   const res = JSON.parse(resRaw.request.response) as fzReq
+
   res.si_sublesson.parts[0].widgets[0].table.rows.forEach(t => {
     console.log('----------------[ New Word ]---------------------')
     console.log(t[0][0].text)
@@ -45,6 +47,7 @@ const t = async () => {
     }
     const link = document.createElement("a")
     link.classList.add("downloadButton")
+
     const i = document.createElement("i")
     link.appendChild(i)
     link.href = recordLink ?? ""
@@ -54,3 +57,18 @@ const t = async () => {
   })
 }
 t()
+
+const courseButtons = document.querySelectorAll("button[title], .sc-crhfPb")
+const onReload = () => {
+  const hasPlaceholder = document.querySelectorAll(".fill-enter-done").length > 0
+  if (hasPlaceholder) {
+    setTimeout(() => {
+      onReload()
+    }, 1000);
+  }
+  t()
+}
+
+courseButtons.forEach(btn => {
+  btn.addEventListener("click", onReload)
+})
