@@ -39,26 +39,31 @@ const t = async () => {
       if (!widget.table) {
         return
       }
-      widget.table.rows.forEach(t => {
-        console.log('----------------[ New Word ]---------------------')
-        console.log(t[0][0].text)
-        const recordLink = t[0][0].record?.sounds['Kanako']
-        const recordId = t[0][0].record?._id
-        const wordSpan = document.querySelector(`span[data-t="sound-text-${recordId}"]`);
+      widget.table.rows.forEach(row => {
+        row.forEach(col => {
+          if (typeof col[0] === 'string') {
+            return
+          }
+          console.log('----------------[ New Word ]---------------------')
+          console.log(col[0].text)
+          const recordLink = col[0].record?.sounds['Kanako']
+          const recordId = col[0].record?._id
+          const wordSpan = document.querySelector(`span[data-t="sound-text-${recordId}"]`);
 
-        const downloadContainer = wordSpan?.parentNode?.parentNode?.parentNode?.parentNode;
-        if (downloadContainer?.lastChild?.nodeName === "A") {
-          return
-        }
-        const link = document.createElement("a")
-        link.classList.add("downloadButton")
+          const downloadContainer = wordSpan?.parentNode?.parentNode?.parentNode?.parentNode;
+          if (downloadContainer?.lastChild?.nodeName === "A") {
+            return
+          }
+          const link = document.createElement("a")
+          link.classList.add("downloadButton")
 
-        const i = document.createElement("i")
-        link.appendChild(i)
-        link.href = recordLink ?? ""
-        i.classList.add(...["play", "circular", "icon", "no-select", "FZPlayButton"])
+          const i = document.createElement("i")
+          link.appendChild(i)
+          link.href = recordLink ?? ""
+          i.classList.add(...["play", "circular", "icon", "no-select", "FZPlayButton"])
 
-        downloadContainer?.appendChild(link)
+          downloadContainer?.appendChild(link)
+        })
       })
     })
   })
